@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Tiro_Bangla, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
+import AdPostcard from "@/components/AdPostcard";
 
 const tiroBangla = Tiro_Bangla({
   weight: "400",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="max-w-5xl mx-auto px-5 py-10 text-center text-sm text-ink-muted">
           তৈরি হয়েছে বইপ্রেমীদের জন্য, ভালোবাসা 💖 দিয়ে।
         </footer>
+        <AdPostcard />
       </body>
     </html>
   );
