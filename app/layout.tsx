@@ -15,7 +15,7 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "এবইপত্র — বাংলা বইয়ের ঘর",
+  title: "ই-বইপত্র — বাংলা বইয়ের ঘর",
   description: "প্রতিদিন একটি করে বাংলা বই, সংক্ষিপ্তসার সহ।",
 };
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${tiroBangla.variable} ${hindSiliguri.variable} font-body antialiased`}>
         <header className="sticky top-0 z-50 backdrop-blur-xl bg-parchment/70 border-b border-ink/5">
           <div className="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
-            <a href="/" className="font-display text-2xl text-ink">এবইপত্র</a>
+            <a href="/" className="font-display text-2xl text-ink">ই-বইপত্র</a>
             <nav className="text-sm text-ink-muted">
               <a href="/" className="hover:text-rust transition-colors">সব বই</a>
             </nav>
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main>{children}</main>
         <footer className="max-w-5xl mx-auto px-5 py-10 text-center text-sm text-ink-muted">
-          তৈরি হয়েছে বইপ্রেমীদের জন্য, ভালোবাসা দিয়ে।
+          তৈরি হয়েছে বইপ্রেমীদের জন্য, ভালোবাসা 💖 দিয়ে।
         </footer>
       </body>
     </html>
