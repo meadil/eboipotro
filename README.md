@@ -19,17 +19,16 @@ Eboipotro puts them in one searchable place.
 
 ## What it does
 
-**Browse.** Every book on the homepage, with cover, author, and genre.
-
-**Search and filter.** Find something by title, author, or genre.
+**Browse.** The homepage shows the most recent book as a featured card, then the
+rest of the catalogue below it — cover, title, author, and genre for each.
 
 **Read the summary.** Know what you're downloading before you download it.
 
 **Download.** PDF and EPUB links, where available.
 
-**Read online.** Pages you can read in the browser, not just download.
-
 Everything is in Bengali.
+
+There is no search yet — the catalogue is browsed, not queried.
 
 ---
 
@@ -92,11 +91,10 @@ and stable — no slugs to maintain, no renaming cascade.
 
 ## Status
 
-Working. The catalogue is populated and books are browsable, searchable, and
-downloadable.
+Working. The catalogue is populated and books are browsable and downloadable.
+
+Not built yet: search, and reading in the browser without downloading.
 
 ---
 
-Built because Bengali books should not be locked behind a Facebook login.
-
-MIT licensed.
+Bengali books should not be locked behind a Facebook login.
