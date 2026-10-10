@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eboipotro (এবইপত্র)
 
-## Getting Started
+**Bengali books, on the internet, free.**
 
-First, run the development server:
+A public library for Bengali literature — find a book, read the summary, download
+the PDF or EPUB. No account, no paywall, no app.
+
+---
+
+## The problem
+
+Bengali literature is almost entirely offline. The books exist as PDFs scattered
+across Facebook groups and random links. There's no catalogue, no way to search,
+and if a link dies the book is gone.
+
+Eboipotro puts them in one searchable place.
+
+---
+
+## What it does
+
+**Browse.** Every book on the homepage, with cover, author, and genre.
+
+**Search and filter.** Find something by title, author, or genre.
+
+**Read the summary.** Know what you're downloading before you download it.
+
+**Download.** PDF and EPUB links, where available.
+
+**Read online.** Pages you can read in the browser, not just download.
+
+Everything is in Bengali.
+
+---
+
+## How it works
+
+There's no database and no admin panel. Books live in a Google Sheet, which is
+published as a CSV. The site reads that sheet at build time and renders from it.
+
+That means adding a book is as simple as adding a row to the spreadsheet. No
+deploy, no CMS, no migration.
+
+---
+
+## Running it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For a production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## How it's built
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Next.js** with the App Router
+**React + TypeScript**
+**Tailwind CSS**
+**Google Sheets** as the catalogue — read as CSV, cached for 60 seconds
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The CSV parser is hand-written rather than pulled from a library. It's about
+twenty lines, and it handles the quoted-comma case that would otherwise break.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+├── page.tsx              the homepage — browse and search
+├── book/[rowNumber]/     one page per book
+├── layout.tsx
+└── globals.css
+lib/
+└── books.ts              reads the sheet, parses the CSV, returns books
+```
+
+A book is identified by its row number in the sheet, which keeps the URLs short
+and stable — no slugs to maintain, no renaming cascade.
+
+---
+
+## Status
+
+Working. The catalogue is populated and books are browsable, searchable, and
+downloadable.
+
+---
+
+Built because Bengali books should not be locked behind a Facebook login.
+
+MIT licensed.
